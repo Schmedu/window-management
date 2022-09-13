@@ -1,4 +1,5 @@
 // Name:  Current apps windows on right half
+// Author: Eduard Uffelmann
 
 import "@johnlindquist/kit";
 import {

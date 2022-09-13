@@ -1,4 +1,5 @@
 // Name: Max out all Windows for current app
+// Author: Eduard Uffelmann
 
 import "@johnlindquist/kit";
 import {

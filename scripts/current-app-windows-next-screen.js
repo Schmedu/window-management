@@ -1,4 +1,5 @@
-// Description: All Front App Windows 2 Next Screen
+// Description: Current apps windows to next screen
+// Author: Eduard Uffelmann
 
 import "@johnlindquist/kit";
 import {
