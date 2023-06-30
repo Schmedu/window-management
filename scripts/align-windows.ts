@@ -9,33 +9,33 @@ import {
     getFrontWindowsScreen,
     setActiveProcessWindowsBounds,
     WindowAlignments,
-    Windows
-} from "../lib/window-management.js";
+    Windows,
+} from "../lib/window-management";
 
 let windowMode =
     Windows[
-        await arg(
-            "Which window(s) to move?",
-            Object.keys(Windows).map((key) => {
-                return {
-                    name: Windows[key],
-                    value: key,
-                };
-            })
-        )
+    await arg(
+        "Which window(s) to move?",
+        Object.keys(Windows).map((key) => {
+            return {
+                name: Windows[key],
+                value: key,
+            };
+        })
+    )
     ];
 
 let windowAlignment =
     WindowAlignments[
-        await arg(
-            "Window Alignment",
-            Object.keys(WindowAlignments).map((key) => {
-                return {
-                    name: WindowAlignments[key].name,
-                    value: key,
-                };
-            })
-        )
+    await arg(
+        "Window Alignment",
+        Object.keys(WindowAlignments).map((key) => {
+            return {
+                name: WindowAlignments[key].name,
+                value: key,
+            };
+        })
+    )
     ];
 
 let activeScreen = await getFrontWindowsScreen();
@@ -47,9 +47,9 @@ if (windowAlignment === WindowAlignments.NEXT_SCREEN) {
 }
 
 let workArea =
-    windowAlignment === WindowAlignments.NEXT_SCREEN ?
-    windowAlignment.workArea(nextScreen) :
-    windowAlignment.workArea(activeScreen);
+    windowAlignment === WindowAlignments.NEXT_SCREEN
+        ? windowAlignment.workArea(nextScreen)
+        : windowAlignment.workArea(activeScreen);
 
 if (windowMode === Windows.ALL) {
     await setActiveProcessWindowsBounds(workArea);

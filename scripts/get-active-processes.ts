@@ -5,12 +5,12 @@
 import "@johnlindquist/kit";
 
 let processes = (
-        await applescript(`
+    await applescript(`
 tell application "System Events"
-    set listOfProcesses to (name of every process)
+    set listOfProcesses to (name of every process where background only is false)
 end tell
 `)
-    )
+)
     .split(",")
     .map((process) => process.trim());
 
