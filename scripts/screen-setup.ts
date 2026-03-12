@@ -52,18 +52,33 @@ if (screens.length === 0) {
     ]);
 } else if (screens.length === 1) {
     let secondScreen = screens[0];
-    await setAppWindows(
-        "Sublime Text",
-        WindowAlignments.ALMOST_MAX,
-        defaultScreen
-    );
-    await setAppWindows("WebStorm", WindowAlignments.LEFT_THIRD, secondScreen);
-    await setAppWindows(
-        "Google Chrome",
-        WindowAlignments.CENTER_THIRD,
-        secondScreen
-    );
-    await setAppWindows("Terminal", WindowAlignments.RIGHT_THIRD, secondScreen);
-    await setAppWindows("Slack", WindowAlignments.LEFT_HALF, defaultScreen);
-    await setAppWindows("Mail", WindowAlignments.RIGHT_HALF, defaultScreen);
+    // await setAppWindows(
+    //     "Sublime Text",
+    //     WindowAlignments.ALMOST_MAX,
+    //     defaultScreen
+    // );
+    // await setAppWindows("WebStorm", WindowAlignments.LEFT_THIRD, secondScreen);
+    // await setAppWindows(
+    //     "Google Chrome",
+    //     WindowAlignments.CENTER_THIRD,
+    //     secondScreen
+    // );
+    // await setAppWindows("Terminal", WindowAlignments.RIGHT_THIRD, secondScreen);
+    // await setAppWindows("Slack", WindowAlignments.LEFT_HALF, defaultScreen);
+    // await setAppWindows("Mail", WindowAlignments.RIGHT_HALF, defaultScreen);
+    await organizeDisplay([
+        {
+            appAlignments: [
+                {
+                    app: "Sublime Text",
+                    windowAlignment: WindowAlignments.ALMOST_MAX,
+                },
+                {
+                    app: "WebStorm",
+                    windowAlignment: WindowAlignments.LEFT_THIRD,
+                }
+            ],
+            screen: secondScreen,
+        },
+    ]);
 }

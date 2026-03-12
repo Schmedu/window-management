@@ -1,4 +1,5 @@
-// Name: Move current apps windows
+// Name: Windi - Window Alignment
+// Description: Organize all windows of an App
 // Author: Eduard Uffelmann
 // Twitter: @schmedu_
 // Example cli usage: ~/.kit/kar window-management/align-windows 'ALL' 'LEFT_HALF'
@@ -12,18 +13,17 @@ import {
     Windows,
 } from "../lib/window-management";
 
-let windowMode =
-    Windows[
-    await arg(
-        "Which window(s) to move?",
-        Object.keys(Windows).map((key) => {
-            return {
-                name: Windows[key],
-                value: key,
-            };
-        })
-    )
-    ];
+const windows = await arg(
+    "Which window(s) to move?",
+    Object.keys(Windows).map((key) => {
+        return {
+            name: Windows[key],
+            value: key,
+        };
+    })
+);
+
+let windowMode = Windows[windows];
 
 let windowAlignment =
     WindowAlignments[
